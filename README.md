@@ -45,7 +45,7 @@ Follow these steps to run the project locally.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/User_profile_management_task.git](https://github.com/YOUR_USERNAME/User_profile_management_task.git)
+git clone https://github.com/AhirraoYash/USER_PROFILE_MANAGEMENT_TASK.git
 
 cd User_profile_management_task
 

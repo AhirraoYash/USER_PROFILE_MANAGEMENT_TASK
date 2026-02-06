@@ -63,14 +63,23 @@ const Profile = () => {
     navigate('/');
   };
 
+  // --- FIXED FOR DEPLOYMENT ---
   const getAvatarUrl = () => {
     if (!user?.avatar) return 'https://via.placeholder.com/150';
-    return `http://localhost:5000/uploads/${user.avatar}`;
+
+    // Automatically detect if we are in Production or Localhost
+    const API_BASE_URL = process.env.REACT_APP_API_URL
+      ? process.env.REACT_APP_API_URL.replace('/api', '') // Remove '/api' to get root URL
+      : 'http://localhost:5000';
+
+    return `${API_BASE_URL}/uploads/${user.avatar}`;
   };
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
+        
+        {/* Header Card */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-6 relative">
           <div className="h-32 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
 
@@ -101,6 +110,7 @@ const Profile = () => {
           </div>
         </div>
 
+        {/* Settings Form Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <h3 className="text-xl font-bold text-gray-800 mb-6 border-b pb-4">
             Profile Settings
